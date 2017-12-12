@@ -22,28 +22,28 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 ///////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////
 
-Route::get('simplesurveys', 'SimpleSurveyController@APIIndexSurveys');
-Route::get('simplesurveys/{id}', 'SimpleSurveyController@APIFindSurveys');
-Route::post('simplesurveys/create', 'SimpleSurveyController@APICreateSurveys');
-Route::put('simplesurveys/update', 'SimpleSurveyController@APIUpdateSurveys');
-Route::delete('simplesurveys/delete', 'SimpleSurveyController@APIDeleteSurveys');
+Route::get('simplesurveys', 'SimpleSurveyAPIController@APIIndexSurveys');
+Route::get('simplesurveys/{id}', 'SimpleSurveyAPIController@APIFindSurveys');
+Route::post('simplesurveys/create', 'SimpleSurveyAPIController@APICreateSurveys');
+Route::put('simplesurveys/update', 'SimpleSurveyAPIController@APIUpdateSurveys');
+Route::delete('simplesurveys/delete', 'SimpleSurveyAPIController@APIDeleteSurveys');
 
-Route::get('simplesurveys/responses/{id}', 'SimpleSurveyController@APIIndexSurveyResponses');
-Route::post('simplesurveys/responses/create', 'SimpleSurveyController@APICreateSurveyResponses');
-Route::put('simplesurveys/responses/update', 'SimpleSurveyController@APIUpdateSurveyResponses');
-Route::delete('simplesurveys/responses/delete', 'SimpleSurveyController@APIDeleteSurveyResponses');
+Route::get('simplesurveys/responses/{id}', 'SimpleSurveyAPIController@APIIndexSurveyResponses');
+Route::post('simplesurveys/responses/create', 'SimpleSurveyAPIController@APICreateSurveyResponses');
+Route::put('simplesurveys/responses/update', 'SimpleSurveyAPIController@APIUpdateSurveyResponses');
+Route::delete('simplesurveys/responses/delete', 'SimpleSurveyAPIController@APIDeleteSurveyResponses');
 
 ///////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////
 
-Route::get('customsurveys', 'CustomSurveyController@APIIndexSurveys');
-Route::get('customsurveys/{id}', 'CustomSurveyController@APIFindSurveys');
-Route::post('customsurveys/create', 'CustomSurveyController@APICreateSurveys');
-Route::put('customsurveys/update', 'CustomSurveyController@APIUpdateSurveys');
-Route::delete('customsurveys/delete', 'CustomSurveyController@APIDeleteSurveys');
+Route::get('customsurveys', 'CustomSurveyAPIController@APIIndexSurveys');
+Route::get('customsurveys/{id}', 'CustomSurveyAPIController@APIFindSurveys');
+Route::post('customsurveys/create', 'CustomSurveyAPIController@APICreateSurveys');
+Route::put('customsurveys/update', 'CustomSurveyAPIController@APIUpdateSurveys');
+Route::delete('customsurveys/delete', 'CustomSurveyAPIController@APIDeleteSurveys');
 
-Route::get('customsurveys/options/{id}', 'CustomSurveyController@APIIndexSurveyOptions');
-Route::post('customsurveys/options/create', 'CustomSurveyController@APICreateSurveyOptions');
-Route::put('customsurveys/options/vote', 'CustomSurveyController@APIVoteSurveyOptions');
-Route::delete('customsurveys/options/delete', 'CustomSurveyController@APIDeleteSurveyOptions');
+Route::get('customsurveys/options/{id}', 'CustomSurveyAPIController@APIIndexSurveyOptions');
+Route::post('customsurveys/options/create', 'CustomSurveyAPIController@APICreateSurveyOptions');
+Route::put('customsurveys/options/vote', 'CustomSurveyAPIController@APIVoteSurveyOptions');
+Route::delete('customsurveys/options/delete', 'CustomSurveyAPIController@APIDeleteSurveyOptions');

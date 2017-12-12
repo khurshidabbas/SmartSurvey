@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\CustomSurvey;
 use App\SimpleSurvey;
+use Auth;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,10 +14,10 @@ class HomeController extends Controller
 	 *
 	 * @return void
 	 */
-	public function __construct()
-	{
-		$this->middleware('auth');
-	}
+//	public function __construct()
+//	{
+//		$this->middleware('auth');
+//	}
 	
 	/**
 	 * Show the application dashboard.
@@ -27,6 +28,9 @@ class HomeController extends Controller
 	{
 		$simpleSurveys = SimpleSurvey::all();
 		$customSurveys = CustomSurvey::all();
+
+//		$simpleSurveys = SimpleSurvey::all()->where('user_id', Auth::id());
+//		$customSurveys = CustomSurvey::all()->where('user_id', Auth::id());
 		
 		$data = ['simpleSurveys' => $simpleSurveys, 'customSurveys' => $customSurveys];
 		
