@@ -5,9 +5,8 @@ namespace App\Http\Controllers;
 use App\SimpleSurvey;
 use App\SimpleSurveyResponse;
 use Crypt;
-use Hash;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
+
 
 class SimpleSurveyController extends Controller
 {
@@ -75,7 +74,6 @@ class SimpleSurveyController extends Controller
 	}
 	
 	/////////////////////////////////////////////////////////
-	
 	
 	public function CreateInvitation($id)
 	{

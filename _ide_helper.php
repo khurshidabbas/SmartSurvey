@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.5.14 on 2017-10-14.
+ * Generated for Laravel 5.5.25 on 2017-12-15.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -375,6 +375,18 @@ namespace Illuminate\Support\Facades {
         public static function getProvider($provider)
         {
             return \Illuminate\Foundation\Application::getProvider($provider);
+        }
+        
+        /**
+         * Get the registered service provider instances if any exist.
+         *
+         * @param \Illuminate\Support\ServiceProvider|string $provider
+         * @return array 
+         * @static 
+         */ 
+        public static function getProviders($provider)
+        {
+            return \Illuminate\Foundation\Application::getProviders($provider);
         }
         
         /**
@@ -3228,7 +3240,7 @@ namespace Illuminate\Support\Facades {
         /**
          * Get the cookies which have been queued for the next request.
          *
-         * @return array 
+         * @return \Symfony\Component\HttpFoundation\Cookie[] 
          * @static 
          */ 
         public static function getQueuedCookies()
@@ -4758,7 +4770,7 @@ namespace Illuminate\Support\Facades {
          *
          * @param string $directory
          * @param bool $hidden
-         * @return array 
+         * @return \Symfony\Component\Finder\SplFileInfo[] 
          * @static 
          */ 
         public static function files($directory, $hidden = false)
@@ -4771,7 +4783,7 @@ namespace Illuminate\Support\Facades {
          *
          * @param string $directory
          * @param bool $hidden
-         * @return array 
+         * @return \Symfony\Component\Finder\SplFileInfo[] 
          * @static 
          */ 
         public static function allFiles($directory, $hidden = false)
@@ -5226,7 +5238,7 @@ namespace Illuminate\Support\Facades {
          * @param string $key
          * @param array $replace
          * @param string $locale
-         * @return string 
+         * @return string|array|null 
          * @static 
          */ 
         public static function getFromJson($key, $replace = array(), $locale = null)
@@ -6652,6 +6664,43 @@ namespace Illuminate\Support\Facades {
         {
             \Illuminate\Routing\Redirector::setSession($session);
         }
+        
+        /**
+         * Register a custom macro.
+         *
+         * @param string $name
+         * @param object|callable $macro
+         * @return void 
+         * @static 
+         */ 
+        public static function macro($name, $macro)
+        {
+            \Illuminate\Routing\Redirector::macro($name, $macro);
+        }
+        
+        /**
+         * Mix another object into the class.
+         *
+         * @param object $mixin
+         * @return void 
+         * @static 
+         */ 
+        public static function mixin($mixin)
+        {
+            \Illuminate\Routing\Redirector::mixin($mixin);
+        }
+        
+        /**
+         * Checks if macro is registered.
+         *
+         * @param string $name
+         * @return bool 
+         * @static 
+         */ 
+        public static function hasMacro($name)
+        {
+            return \Illuminate\Routing\Redirector::hasMacro($name);
+        }
          
     }
 
@@ -7373,8 +7422,8 @@ namespace Illuminate\Support\Facades {
          * 
          * Order of precedence: PATH (routing placeholders or custom attributes), GET, BODY
          *
-         * @param string $key the key
-         * @param mixed $default the default value if the parameter key does not exist
+         * @param string $key The key
+         * @param mixed $default The default value if the parameter key does not exist
          * @return mixed 
          * @static 
          */ 
@@ -8007,6 +8056,24 @@ namespace Illuminate\Support\Facades {
         {
             //Method inherited from \Symfony\Component\HttpFoundation\Request            
             return \Illuminate\Http\Request::isMethodCacheable();
+        }
+        
+        /**
+         * Returns the protocol version.
+         * 
+         * If the application is behind a proxy, the protocol version used in the
+         * requests between the client and the proxy and between the proxy and the
+         * server might be different. This returns the former (from the "Via" header)
+         * if the proxy is trusted (see "setTrustedProxies()"), otherwise it returns
+         * the latter (from the "SERVER_PROTOCOL" server parameter).
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getProtocolVersion()
+        {
+            //Method inherited from \Symfony\Component\HttpFoundation\Request            
+            return \Illuminate\Http\Request::getProtocolVersion();
         }
         
         /**
@@ -8987,7 +9054,19 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * Route an api resource to a controller.
+         * Register an array of API resource controllers.
+         *
+         * @param array $resources
+         * @return void 
+         * @static 
+         */ 
+        public static function apiResources($resources)
+        {
+            \Illuminate\Routing\Router::apiResources($resources);
+        }
+        
+        /**
+         * Route an API resource to a controller.
          *
          * @param string $name
          * @param string $controller
@@ -10568,6 +10647,35 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
+         * Create a streamed response for a given file.
+         *
+         * @param string $path
+         * @param string|null $name
+         * @param array|null $headers
+         * @param string|null $disposition
+         * @return \Symfony\Component\HttpFoundation\StreamedResponse 
+         * @static 
+         */ 
+        public static function response($path, $name = null, $headers = array(), $disposition = 'inline')
+        {
+            return \Illuminate\Filesystem\FilesystemAdapter::response($path, $name, $headers, $disposition);
+        }
+        
+        /**
+         * Create a streamed download response for a given file.
+         *
+         * @param string $path
+         * @param string|null $name
+         * @param array|null $headers
+         * @return \Symfony\Component\HttpFoundation\StreamedResponse 
+         * @static 
+         */ 
+        public static function download($path, $name = null, $headers = array())
+        {
+            return \Illuminate\Filesystem\FilesystemAdapter::download($path, $name, $headers);
+        }
+        
+        /**
          * Write the contents of a file.
          *
          * @param string $path
@@ -10784,7 +10892,7 @@ namespace Illuminate\Support\Facades {
          * @param \League\Flysystem\Rackspace\RackspaceAdapter $adapter
          * @param string $path
          * @param \DateTimeInterface $expiration
-         * @param $options
+         * @param array $options
          * @return string 
          * @static 
          */ 
@@ -10865,6 +10973,17 @@ namespace Illuminate\Support\Facades {
         public static function deleteDirectory($directory)
         {
             return \Illuminate\Filesystem\FilesystemAdapter::deleteDirectory($directory);
+        }
+        
+        /**
+         * Flush the Flysystem cache.
+         *
+         * @return void 
+         * @static 
+         */ 
+        public static function flushCache()
+        {
+            \Illuminate\Filesystem\FilesystemAdapter::flushCache();
         }
         
         /**
@@ -12132,6 +12251,143 @@ namespace Illuminate\Support\Facades {
         public static function renderTranslation()
         {
             return \Illuminate\View\Factory::renderTranslation();
+        }
+         
+    }
+ 
+}
+
+namespace SimpleSoftwareIO\QrCode\Facades { 
+
+    class QrCode {
+        
+        /**
+         * Generates a QrCode.
+         *
+         * @param string $text The text to be converted into a QrCode
+         * @param null|string $filename The filename and path to save the QrCode file
+         * @return string|void Returns a QrCode string depending on the format, or saves to a file.
+         * @static 
+         */ 
+        public static function generate($text, $filename = null)
+        {
+            return \SimpleSoftwareIO\QrCode\BaconQrCodeGenerator::generate($text, $filename);
+        }
+        
+        /**
+         * Merges an image with the center of the QrCode.
+         *
+         * @param $filepath string The filepath to an image
+         * @param $percentage float The amount that the merged image should be placed over the qrcode.
+         * @param $absolute boolean Whether to use an absolute filepath or not.
+         * @return $this 
+         * @static 
+         */ 
+        public static function merge($filepath, $percentage = '0.2', $absolute = false)
+        {
+            return \SimpleSoftwareIO\QrCode\BaconQrCodeGenerator::merge($filepath, $percentage, $absolute);
+        }
+        
+        /**
+         * Merges an image string with the center of the QrCode, does not check for correct format.
+         *
+         * @param $content string The string contents of an image.
+         * @param $percentage float The amount that the merged image should be placed over the qrcode.
+         * @return $this 
+         * @static 
+         */ 
+        public static function mergeString($content, $percentage = '0.2')
+        {
+            return \SimpleSoftwareIO\QrCode\BaconQrCodeGenerator::mergeString($content, $percentage);
+        }
+        
+        /**
+         * Switches the format of the outputted QrCode or defaults to SVG.
+         *
+         * @param string $format The desired format.
+         * @throws \InvalidArgumentException
+         * @return $this 
+         * @static 
+         */ 
+        public static function format($format)
+        {
+            return \SimpleSoftwareIO\QrCode\BaconQrCodeGenerator::format($format);
+        }
+        
+        /**
+         * Changes the size of the QrCode.
+         *
+         * @param int $pixels The size of the QrCode in pixels
+         * @return $this 
+         * @static 
+         */ 
+        public static function size($pixels)
+        {
+            return \SimpleSoftwareIO\QrCode\BaconQrCodeGenerator::size($pixels);
+        }
+        
+        /**
+         * Changes the foreground color of a QrCode.
+         *
+         * @param int $red
+         * @param int $green
+         * @param int $blue
+         * @return $this 
+         * @static 
+         */ 
+        public static function color($red, $green, $blue)
+        {
+            return \SimpleSoftwareIO\QrCode\BaconQrCodeGenerator::color($red, $green, $blue);
+        }
+        
+        /**
+         * Changes the background color of a QrCode.
+         *
+         * @param int $red
+         * @param int $green
+         * @param int $blue
+         * @return $this 
+         * @static 
+         */ 
+        public static function backgroundColor($red, $green, $blue)
+        {
+            return \SimpleSoftwareIO\QrCode\BaconQrCodeGenerator::backgroundColor($red, $green, $blue);
+        }
+        
+        /**
+         * Changes the error correction level of a QrCode.
+         *
+         * @param string $level Desired error correction level.  L = 7% M = 15% Q = 25% H = 30%
+         * @return $this 
+         * @static 
+         */ 
+        public static function errorCorrection($level)
+        {
+            return \SimpleSoftwareIO\QrCode\BaconQrCodeGenerator::errorCorrection($level);
+        }
+        
+        /**
+         * Creates a margin around the QrCode.
+         *
+         * @param int $margin The desired margin in pixels around the QrCode
+         * @return $this 
+         * @static 
+         */ 
+        public static function margin($margin)
+        {
+            return \SimpleSoftwareIO\QrCode\BaconQrCodeGenerator::margin($margin);
+        }
+        
+        /**
+         * Sets the Encoding mode.
+         *
+         * @param string $encoding
+         * @return $this 
+         * @static 
+         */ 
+        public static function encoding($encoding)
+        {
+            return \SimpleSoftwareIO\QrCode\BaconQrCodeGenerator::encoding($encoding);
         }
          
     }
@@ -14250,6 +14506,8 @@ namespace  {
     class Validator extends \Illuminate\Support\Facades\Validator {}
 
     class View extends \Illuminate\Support\Facades\View {}
+
+    class QrCode extends \SimpleSoftwareIO\QrCode\Facades\QrCode {}
  
 }
 

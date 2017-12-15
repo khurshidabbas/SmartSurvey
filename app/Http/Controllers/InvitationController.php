@@ -21,7 +21,7 @@ class InvitationController extends Controller
 		SimpleSurveyResponse::create($request->toArray());
 
 //		return redirect(route('FindSimpleSurvey', ['id' => $request->survey_id]));
-		return 'Done!';
+		return view('invitations.thanks');
 	}
 	
 	/////////////////////////////////////////
@@ -39,6 +39,6 @@ class InvitationController extends Controller
 	public function PostCustomSurveyInvitation(Request $request)
 	{
 		CustomSurveyResponse::where('id', $request->optionid)->increment('votes');
-		return 'Voted Successfully';
+		return view('invitations.thanks');
 	}
 }

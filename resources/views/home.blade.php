@@ -70,19 +70,19 @@
                                                             <a href={!! route('FindSimpleSurvey', ['id' => $simpleSurvey->id]) !!}>
 
                                                                 <h3 class="text-warning">{{$simpleSurvey->title}}</h3>
-
-                                                                <h5 class="text-primary">Created:
-                                                                    <span class="text-success">{{$simpleSurvey->created_at}}</span>
-                                                                </h5>
-
-                                                                <h5 class="text-primary">Updated:
-                                                                    <span class="text-success">{{$simpleSurvey->updated_at}}</span>
-                                                                </h5>
-
-                                                                {{--<span class="text-warning">{{$simpleSurvey->id}}</span>--}}
-                                                                {{--<span class="text-primary">{{$simpleSurvey->user_id}}</span>--}}
-                                                                {{--<span class="text-primary">{{$simpleSurvey->question}}</span>--}}
                                                             </a>
+
+                                                            <div>
+                                                                <p>
+                                                                    <span class="text-primary">Created:</span> {{$simpleSurvey->created_at}}
+                                                                    ---
+                                                                    <span class="text-primary">Updated:</span> {{$simpleSurvey->updated_at}}
+                                                                </p>
+                                                            </div>
+
+                                                            {{--<span class="text-warning">{{$simpleSurvey->id}}</span>--}}
+                                                            {{--<span class="text-primary">{{$simpleSurvey->user_id}}</span>--}}
+                                                            {{--<span class="text-primary">{{$simpleSurvey->question}}</span>--}}
 
                                                         </div>
                                                     </div>
@@ -119,18 +119,18 @@
 
                                                                 <h3 class="text-warning">{{$customSurvey->title}}</h3>
 
-                                                                <h5 class="text-primary">Created:
-                                                                    <span class="text-success">{{$customSurvey->created_at}}</span>
-                                                                </h5>
-
-                                                                <h5 class="text-primary">Updated:
-                                                                    <span class="text-success">{{$customSurvey->updated_at}}</span>
-                                                                </h5>
-
-                                                                {{--<span class="text-warning">{{$customSurvey->id}}</span>--}}
-                                                                {{--<span class="text-primary">{{$customSurvey->user_id}}</span>--}}
-                                                                {{--<span class="text-primary">{{$customSurvey->question}}</span>--}}
                                                             </a>
+                                                            <div>
+                                                                <p>
+                                                                    <span class="text-primary">Created:</span> {{$customSurvey->created_at}}
+                                                                    ---
+                                                                    <span class="text-primary">Updated:</span> {{$customSurvey->updated_at}}
+                                                                </p>
+                                                            </div>
+
+                                                            {{--<span class="text-warning">{{$customSurvey->id}}</span>--}}
+                                                            {{--<span class="text-primary">{{$customSurvey->user_id}}</span>--}}
+                                                            {{--<span class="text-primary">{{$customSurvey->question}}</span>--}}
                                                         </div>
                                                     </div>
                                                 @endforeach
