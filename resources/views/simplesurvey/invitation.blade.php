@@ -24,7 +24,7 @@
                             <div class="panel-body">
                                 {!! QrCode::format('svg')
                                 ->backgroundColor(255, 255, 255)->color(0, 0, 0)
-                                ->size(300)->generate($link)!!}
+                                ->size(300)->generate($link) !!}
                             </div>
                         </div>
                     </div>

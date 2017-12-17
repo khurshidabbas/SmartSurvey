@@ -1,7 +1,48 @@
 @extends('layouts.app')
 
+@section('script')
+    <script>
+
+        var number = 0;
+
+        @foreach($responses as $response)
+            number++;
+                @endforeach
+
+        var ctx = document.getElementById("myChart").getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'polarArea',
+            data: {
+                labels: ["Responses"],
+
+                datasets: [{
+                    data: [number],
+
+                    backgroundColor: [
+                        'rgba(70, 189, 255, 0.5)'
+                    ],
+
+                    hoverBackgroundColor: [
+                        'rgba(128, 204, 255, 0.1)'
+                    ],
+
+                    borderColor: [
+                        'rgba(51, 102, 255)'
+                    ],
+
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {}
+            }
+        });
+    </script>
+@endsection
+
 @section('content')
     <div class="container">
+
         <div class="row">
 
             <div class="panel panel-primary">
@@ -53,6 +94,50 @@
             </div>
         </div>
 
+        <div align="center" class="row">
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h1 class="panel-title">Total Responses</h1>
+                </div>
+                <div class="panel-body">
+                    <div style="width: 75%; height: 75%">
+                        <canvas id="myChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <div class="panel-title">Download Response</div>
+                </div>
+                <div class="panel-body">
+                    <div align="center">
+
+                        <button type="button" class="btn btn-primary"
+                                onclick="location.href='{!! route('DownloadDOCX', ['id'=>$survey->id]) !!}'">
+                            Microsoft Word
+                        </button>
+
+                        <button type="button" class="btn btn-primary"
+                                onclick="location.href='{!! route('DownloadPDF', ['id'=>$survey->id]) !!}'">
+                            PDF
+                        </button>
+
+                        <button type="button" class="btn btn-primary"
+                                onclick="location.href='{!! route('DownloadHTML', ['id'=>$survey->id]) !!}'">
+                            Browser ( HTML )
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
 
         <div class="row">
             <h3 class="text-primary">Responses</h3>

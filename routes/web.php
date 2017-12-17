@@ -36,11 +36,19 @@ Route::get('/home/simplesurvey/delete/{id}', 'SimpleSurveyController@WebDeleteSu
 	->name('DeleteSimpleSurvey');
 Route::get('/home/simplesurvey/{id}', 'SimpleSurveyController@WebFindSurveys')
 	->name('FindSimpleSurvey');
-//////////////////////////////////
+////////////////////////////////// Responses //////////////////////////////////
 Route::get('/home/simplesurvey/{id}/respnoses/create', 'SimpleSurveyController@WebCreateSurveyResponses')
 	->name('CreateSimpleSurveyResponse');
 Route::post('/home/simplesurvey/respnoses/create', 'SimpleSurveyController@WebCreateSurveyResponsesForm')
 	->name('CreateSimpleSurveyResponseForm');
+////////////////////////////////// Downloads //////////////////////////////////
+Route::get('/home/simplesurvey/{id}/download/pdf', 'SimpleSurveyController@DownloadPDF')
+	->name('DownloadPDF');
+Route::get('/home/simplesurvey/{id}/download/docx', 'SimpleSurveyController@DownloadDOCX')
+	->name('DownloadDOCX');
+Route::get('/home/simplesurvey/{id}/download/html', 'SimpleSurveyController@DownloadHTML')
+	->name('DownloadHTML');
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -59,7 +67,7 @@ Route::get('/home/customsurvey/delete/{id}', 'CustomSurveyController@WebDeleteSu
 	->name('DeleteCustomSurvey');
 Route::get('/home/customsurvey/{id}', 'CustomSurveyController@WebFindSurveys')
 	->name('FindCustomSurvey');
-//////////////////////////////////
+////////////////////////////////// Responses //////////////////////////////////
 Route::get('/home/customsurvey/{id}/respnoses/create', 'CustomSurveyController@WebCreateSurveyResponses')
 	->name('CreateCustomSurveyResponse');
 Route::post('/home/customsurvey/respnoses/create', 'CustomSurveyController@WebCreateSurveyResponsesForm')
