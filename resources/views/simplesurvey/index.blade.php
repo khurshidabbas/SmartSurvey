@@ -43,6 +43,7 @@
 @section('content')
     <div class="container">
 
+        {{--<SurveyDetails>--}}
         <div class="row">
 
             <div class="panel panel-primary">
@@ -93,7 +94,9 @@
                 </div>
             </div>
         </div>
+        {{--</SurveyDetails>--}}
 
+        {{--<Graphs>--}}
         <div align="center" class="row">
 
             <div class="panel panel-primary">
@@ -108,28 +111,30 @@
             </div>
 
         </div>
+        {{--</Graphs>--}}
 
+        {{--<Downloads>--}}
         <div class="row">
 
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <div class="panel-title">Download Response</div>
+                    <div class="panel-title">Download Responses</div>
                 </div>
                 <div class="panel-body">
                     <div align="center">
 
                         <button type="button" class="btn btn-primary"
-                                onclick="location.href='{!! route('DownloadDOCX', ['id'=>$survey->id]) !!}'">
+                                onclick="location.href='{!! route('DownloadSimpleSurveyDOCX', ['id'=>$survey->id]) !!}'">
                             Microsoft Word
                         </button>
 
                         <button type="button" class="btn btn-primary"
-                                onclick="location.href='{!! route('DownloadPDF', ['id'=>$survey->id]) !!}'">
+                                onclick="location.href='{!! route('DownloadSimpleSurveyPDF', ['id'=>$survey->id]) !!}'">
                             PDF
                         </button>
 
                         <button type="button" class="btn btn-primary"
-                                onclick="location.href='{!! route('DownloadHTML', ['id'=>$survey->id]) !!}'">
+                                onclick="location.href='{!! route('DownloadSimpleSurveyHTML', ['id'=>$survey->id]) !!}'">
                             Browser ( HTML )
                         </button>
 
@@ -138,7 +143,9 @@
             </div>
 
         </div>
+        {{--</Downloads>--}}
 
+        {{--<Responses>--}}
         <div class="row">
             <h3 class="text-primary">Responses</h3>
 
@@ -159,6 +166,7 @@
 
             @endforeach
         </div>
+        {{--</Responses>--}}
 
     </div>
 @endsection

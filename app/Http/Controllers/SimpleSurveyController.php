@@ -6,10 +6,7 @@ use App\SimpleSurvey;
 use App\SimpleSurveyResponse;
 use Barryvdh\DomPDF\Facade as PDF;
 use Crypt;
-
-use Exception;
 use Illuminate\Http\Request;
-
 
 class SimpleSurveyController extends Controller
 {

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\CustomSurvey;
 use App\CustomSurveyResponse;
+use Barryvdh\DomPDF\Facade as PDF;
 use Crypt;
 use Illuminate\Http\Request;
 
@@ -58,7 +59,7 @@ class CustomSurveyController extends Controller
 		return redirect(route('home'));
 	}
 	
-	/////////////////////////////////////////////////////////
+	////////////////////////// Responses //////////////////////////
 	
 	public function WebCreateSurveyResponses($id)
 	{
@@ -72,7 +73,157 @@ class CustomSurveyController extends Controller
 		return redirect(route('FindCustomSurvey', ['id' => $request->survey_id]));
 	}
 	
-	/////////////////////////////////////////////////////////
+	////////////////////////// Downloads //////////////////////////
+	
+	public function DownloadPDF($id)
+	{
+		$survey = CustomSurvey::find($id);
+		$responses = CustomSurveyResponse::all()->where('survey_id', $survey->id);
+		
+		$data = ['survey' => $survey, 'responses' => $responses];
+		
+		$pdf = PDF::loadView('downloads.customsurvey.pdf', $data);
+		return $pdf->download('Smart - Survey.pdf');
+	}
+	
+	public function DownloadDOCX($id)
+	{
+		$survey = CustomSurvey::find($id);
+		$responses = CustomSurveyResponse::all()->where('survey_id', $survey->id);
+		
+		$phpWord = new \PhpOffice\PhpWord\PhpWord();
+		$section = $phpWord->addSection();
+		$file = 'Smart - Survey.docx';
+		header("Content-Description: File Transfer");
+		header('Content-Disposition: attachment; filename="' . $file . '"');
+		header('Content-Type: application/vnd.openxmlformats-officedocument.wordprocessingml.document');
+		header('Content-Transfer-Encoding: binary');
+		header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+		header('Expires: 0');
+		
+		
+		$section->addText(
+			'Smart Survey',
+			array('name' => 'Calibri', 'size' => 36)
+		);
+		
+		$section->addTextBreak();
+		
+		$section->addText(
+			$survey->title,
+			array('name' => 'Calibri', 'size' => 26)
+		);
+		
+		$section->addText(
+			$survey->question,
+			array('name' => 'Calibri', 'size' => 18)
+		);
+		
+		$section->addTextBreak();
+		
+		$section->addText(
+			'Feedbacks:',
+			array('name' => 'Calibri', 'size' => 26)
+		);
+		
+		foreach ($responses as $response) {
+			$section->addText(
+				$response->votes
+				. ' Votes',
+				array('name' => 'Calibri', 'size' => 20)
+			);
+			
+			$section->addText(
+				$response->option,
+				array('name' => 'Calibri', 'size' => 18)
+			);
+			
+			$section->addText(
+				'Created: ' . $response->created_at
+				. ' --- '
+				. 'Updated: ' . $response->updated_at
+				,
+				array('name' => 'Calibri', 'size' => 12)
+			);
+			
+			$section->addTextBreak();
+			$section->addTextBreak();
+		}
+		
+		
+		$objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
+		$objWriter->save('php://output');
+	}
+	
+	public function DownloadHTML($id)
+	{
+		$survey = CustomSurvey::find($id);
+		$responses = CustomSurveyResponse::all()->where('survey_id', $survey->id);
+		
+		$phpWord = new \PhpOffice\PhpWord\PhpWord();
+		$section = $phpWord->addSection();
+		$file = 'Smart - Survey.html';
+		header("Content-Description: File Transfer");
+		header('Content-Disposition: attachment; filename="' . $file . '"');
+		header('Content-Type: application/vnd.openxmlformats-officedocument.wordprocessingml.document');
+		header('Content-Transfer-Encoding: binary');
+		header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+		header('Expires: 0');
+		
+		
+		$section->addText(
+			'Smart Survey',
+			array('name' => 'Calibri', 'size' => 36)
+		);
+		
+		$section->addTextBreak();
+		
+		$section->addText(
+			$survey->title,
+			array('name' => 'Calibri', 'size' => 26)
+		);
+		
+		$section->addText(
+			$survey->question,
+			array('name' => 'Calibri', 'size' => 18)
+		);
+		
+		$section->addTextBreak();
+		
+		$section->addText(
+			'Feedbacks:',
+			array('name' => 'Calibri', 'size' => 26)
+		);
+		
+		foreach ($responses as $response) {
+			$section->addText(
+				$response->votes
+				. ' Votes',
+				array('name' => 'Calibri', 'size' => 20)
+			);
+			
+			$section->addText(
+				$response->option,
+				array('name' => 'Calibri', 'size' => 18)
+			);
+			
+			$section->addText(
+				'Created: ' . $response->created_at
+				. ' --- '
+				. 'Updated: ' . $response->updated_at
+				,
+				array('name' => 'Calibri', 'size' => 12)
+			);
+			
+			$section->addTextBreak();
+			$section->addTextBreak();
+		}
+		
+		$objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'HTML');
+		$objWriter->save('php://output');
+	}
+	
+	////////////////////////// Invitations //////////////////////////
 	
 	public function CreateInvitation($id)
 	{

@@ -43,11 +43,11 @@ Route::post('/home/simplesurvey/respnoses/create', 'SimpleSurveyController@WebCr
 	->name('CreateSimpleSurveyResponseForm');
 ////////////////////////////////// Downloads //////////////////////////////////
 Route::get('/home/simplesurvey/{id}/download/pdf', 'SimpleSurveyController@DownloadPDF')
-	->name('DownloadPDF');
+	->name('DownloadSimpleSurveyPDF');
 Route::get('/home/simplesurvey/{id}/download/docx', 'SimpleSurveyController@DownloadDOCX')
-	->name('DownloadDOCX');
+	->name('DownloadSimpleSurveyDOCX');
 Route::get('/home/simplesurvey/{id}/download/html', 'SimpleSurveyController@DownloadHTML')
-	->name('DownloadHTML');
+	->name('DownloadSimpleSurveyHTML');
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -72,6 +72,13 @@ Route::get('/home/customsurvey/{id}/respnoses/create', 'CustomSurveyController@W
 	->name('CreateCustomSurveyResponse');
 Route::post('/home/customsurvey/respnoses/create', 'CustomSurveyController@WebCreateSurveyResponsesForm')
 	->name('CreateCustomSurveyResponseForm');
+////////////////////////////////// Downloads //////////////////////////////////
+Route::get('/home/customsurvey/{id}/download/pdf', 'CustomSurveyController@DownloadPDF')
+	->name('DownloadCustomSurveyPDF');
+Route::get('/home/customsurvey/{id}/download/docx', 'CustomSurveyController@DownloadDOCX')
+	->name('DownloadCustomSurveyDOCX');
+Route::get('/home/customsurvey/{id}/download/html', 'CustomSurveyController@DownloadHTML')
+	->name('DownloadCustomSurveyHTML');
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
