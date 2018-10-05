@@ -11,7 +11,7 @@
                 <div class="panel-body">
                     <div align="center">
                         <h1 class="text-primary">
-                            Thanks for letting us know with your feedback!
+                            Thanks for using Smart Survey!
                         </h1>
                     </div>
                 </div>

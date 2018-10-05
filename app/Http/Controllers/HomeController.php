@@ -6,6 +6,8 @@ use App\CustomSurvey;
 use App\SimpleSurvey;
 use Auth;
 use Illuminate\Http\Request;
+use App\Mail\InvitationEmail;
+use Mail;
 
 class HomeController extends Controller
 {
@@ -18,7 +20,7 @@ class HomeController extends Controller
 	{
 		$this->middleware('auth');
 	}
-	
+
 	/**
 	 * Show the application dashboard.
 	 *
@@ -26,14 +28,22 @@ class HomeController extends Controller
 	 */
 	public function index()
 	{
-		$simpleSurveys = SimpleSurvey::all();
-		$customSurveys = CustomSurvey::all();
+//		$simpleSurveys = SimpleSurvey::all();
+//		$customSurveys = CustomSurvey::all();
 
-//		$simpleSurveys = SimpleSurvey::all()->where('user_id', Auth::id());
-//		$customSurveys = CustomSurvey::all()->where('user_id', Auth::id());
-		
+		$simpleSurveys = SimpleSurvey::all()->where('user_id', Auth::id());
+		$customSurveys = CustomSurvey::all()->where('user_id', Auth::id());
+
 		$data = ['simpleSurveys' => $simpleSurveys, 'customSurveys' => $customSurveys];
-		
+
 		return view('home', $data);
+	}
+
+	public function email(Request $request)
+	{
+//		return $request->link;
+//		Mail::to('khurshidabbas@gmail.com')->send(new InvitationEmail($request->link));
+		Mail::to($request->email)->send(new InvitationEmail($request->link));
+		return view('invitations.thanks');
 	}
 }

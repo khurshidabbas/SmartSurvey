@@ -27,6 +27,23 @@
                                 ->size(300)->generate($link)!!}
                             </div>
                         </div>
+
+                        <form class="form" method="POST" action="{!! route('Email') !!}">
+                            {{ csrf_field() }}
+
+                            <input class="form-control" type="hidden" id="link" name="link"
+                                   value="{{$link}}">
+
+                            <div class="input-group-lg">
+                                <h4 class="text-primary">Email Address</h4>
+                                <input class="form-control" placeholder="abc@xyz.com" type="email" id="email"
+                                       name="email" required>
+                                <br>
+                            </div>
+
+                            <button class="form-control btn btn-primary" type="submit">Send Invitation!</button>
+                        </form>
+
                     </div>
                 </div>
             </div>

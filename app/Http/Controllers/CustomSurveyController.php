@@ -10,6 +10,12 @@ use Illuminate\Http\Request;
 
 class CustomSurveyController extends Controller
 {
+	//Auth
+	public function __construct()
+	{
+		$this->middleware('auth');
+	}
+
 	//Add Auth Middleware to this Controller
 	public function WebFindSurveys($id)
 	{

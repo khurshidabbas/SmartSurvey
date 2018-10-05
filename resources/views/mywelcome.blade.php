@@ -119,12 +119,13 @@
 
         <div class="col-md-12">
             <h1>
-                You've Got It!
+                Make Smarter Decisions
             </h1>
 
             <p class="tagline">
-                The fastest way to grow your business with the leader in
-                <span class="text-info">Technology!</span>
+                Create online surveys and forms with our user-friendly
+                yet advanced
+                <span class="text-info">survey software!</span>
             </p>
             <a class="btn btn-full" href="#about">Get Started Now</a>
         </div>
@@ -183,10 +184,10 @@
             @if (Route::has('login'))
 
                 @auth
-                <a href="{{ url('/home') }}">Home</a>
-            @else
-                <a href="{{ route('login') }}">Login</a>
-                <a href="{{ route('register') }}">Register</a>
+                    <a href="{{ url('/home') }}">Home</a>
+                @else
+                    <a href="{{ route('login') }}">Login</a>
+                    <a href="{{ route('register') }}">Register</a>
                 @endauth
 
             @endif
@@ -201,42 +202,41 @@
 <section class="about" id="about">
     <div class="container text-center">
         <h2>
-            <span class="text-info">About MistCasters</span>
+            <span class="text-info">About SmartSurvey</span>
         </h2>
 
         <p>
-            We provide the highest level of quality software products and services globally that meet the needs of our
-            customers by maintaining our staff as our principal asset and being responsive to market expectations.
-            Any progressive business demands the right tools to guide innovation and achieve strategic superiority.
-            <!--Having worked with more than 200 finance and leasing companies in over 30 countries, -->
-            <span class="text-info">MistCasters</span> understands the unique operational challenges of today’s
-            businesses and empowers these organizations to achieve business excellence.
-            Our customized approach and commitment to providing superior quality IT solutions has enabled us to help our
-            clients streamline their business operations and optimize efficiency.
+            Create any type of survey, whether simple or sophisticated. Then collect and analyse your
+            data securely using our advanced reporting tools.SmartSurvey is used worldwide by private businesses,
+            government departments, students, and charities to create, collect and analyse data every day.
+            Trusted by leading companies and brands worldwide.
+            More than 150,000 people rely on <span class="text-info">SmartSurvey</span> to collect data online.
+            We will help you collect the information you need quickly and easily. Trust us to safeguard your data
+            and provide the support you need, when you need it.
         </p>
 
         <div class="row stats-row">
             <div class="stats-col text-center col-md-3 col-sm-6">
                 <div class="circle">
-                    <span class="stats-no" data-toggle="counter-up">25</span> Satisfied Customers
+                    <span class="stats-no" data-toggle="counter-up">100</span> Flexible & Secure
                 </div>
             </div>
 
             <div class="stats-col text-center col-md-3 col-sm-6">
                 <div class="circle">
-                    <span class="stats-no" data-toggle="counter-up">30</span> Released Projects
+                    <span class="stats-no" data-toggle="counter-up">100</span> Nothing to Install
                 </div>
             </div>
 
             <div class="stats-col text-center col-md-3 col-sm-6">
                 <div class="circle">
-                    <span class="stats-no" data-toggle="counter-up">1,000</span> Hours Of Support
+                    <span class="stats-no" data-toggle="counter-up">100</span> Easy to Use
                 </div>
             </div>
 
             <div class="stats-col text-center col-md-3 col-sm-6">
                 <div class="circle">
-                    <span class="stats-no" data-toggle="counter-up">10</span> Hard Workers
+                    <span class="stats-no" data-toggle="counter-up">100</span> Your Data in one Place
                 </div>
             </div>
         </div>
@@ -279,19 +279,19 @@
                 <div class="card card-block text-center">
                     <div>
                         <div class="feature-icon">
-                            <span class="fa fa-bank"></span>
+                            <span class="fa fa-rocket"></span>
                         </div>
                     </div>
 
                     <div>
                         <h3>
-                            Business Process Automation
+                            Real-time results
                         </h3>
 
                         <p>
-                            We take pride in our capacity to grasp business procedures
-                            and the ability to convert this knowledge into software solutions
-                            leading to effective management of our client's resources and operations.
+                            View survey responses in real-time for instant analysis.
+                            Create graphs, find trends, and use custom filters to generate
+                            the insight needed to drive business forward.
                         </p>
                     </div>
                 </div>
@@ -307,43 +307,17 @@
 
                     <div>
                         <h3>
-                            Ecommerce Development
+                            Create Custom Reports
                         </h3>
 
                         <p>
-                            As your trusted e-commerce development partner, we build, launch and grow profitable online
-                            stores.
-                            Whether it’s on the web or mobile, MistCasters provides the ultimate,
-                            fully managed eCommerce solutions delivering top-quality solutions and services.
+                            For expert analysis of your survey responses,
+                            produce charts and graphs to bring your results to life in powerful presentations.
                         </p>
                     </div>
                 </div>
             </div>
 
-            <div class="feature-col col-lg-4 col-xs-12">
-                <div class="card card-block text-center">
-                    <div>
-                        <div class="feature-icon">
-                            <span class="fa fa-rocket"></span>
-                        </div>
-                    </div>
-
-                    <div>
-                        <h3>
-                            Application Development
-                        </h3>
-
-                        <p>
-                            MistCasters Application Development Service enables you to develop any application,
-                            from integrating with payment systems or CRM,
-                            to creating a Minimum Viable Product or developing Virtual Reality gaming applications.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
             <div class="feature-col col-lg-4 col-xs-12">
                 <div class="card card-block text-center">
                     <div>
@@ -354,59 +328,11 @@
 
                     <div>
                         <h3>
-                            Mobile Development
+                            Web APIs
                         </h3>
 
                         <p>
-                            Our Mobile Development team will achieve the
-                            best possible application of your business processes to a mobile platform –
-                            whether you need a Minimum Viable Product or complex mobile application with third-party
-                            integrations.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="feature-col col-lg-4 col-xs-12">
-                <div class="card card-block text-center">
-                    <div>
-                        <div class="feature-icon">
-                            <span class="fa fa-chrome"></span>
-                        </div>
-                    </div>
-
-                    <div>
-                        <h3>
-                            Web Development
-                        </h3>
-
-                        <p>
-                            We are providing custom web application development solutions to large established
-                            enterprise
-                            to small startups for their custom business need.
-                            We also help our client to migrate existing web application to new technologies.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="feature-col col-lg-4 col-xs-12">
-                <div class="card card-block text-center">
-                    <div>
-                        <div class="feature-icon">
-                            <span class="fa fa-search"></span>
-                        </div>
-                    </div>
-
-                    <div>
-                        <h3>
-                            Software Testing
-                        </h3>
-
-                        <p>
-                            MistCasters software testing service enables your company to deliver a better product,
-                            shortens its time-to-market while maintaining your customer confidence and safeguarding your
-                            reputation.
+                            Your data in one place, connect your data with APIs and more.
                         </p>
                     </div>
                 </div>
@@ -439,175 +365,6 @@
 </section>
 <!--/Call to Action-->
 
-
-<!-- Portfolio -->
-<section class="portfolio" id="portfolio">
-    <div class="container text-center">
-        <h2>
-            Portfolio
-        </h2>
-
-        <p>
-            You can review some of the projects that were successfully implemented by MistCasters. If you wish to
-            receive more
-            detailed information on any of the provided examples or get quotation for your project, please feel free to
-            contact us.
-        </p>
-    </div>
-
-    <div class="portfolio-grid">
-        <div class="row">
-            <div class="col-lg-3 col-sm-6 col-xs-12">
-                <div class="card card-block">
-                    <a><img alt="" src="welcome/img/new-porf-1.jpg">
-                        <div class="portfolio-over">
-                            <div>
-                                <h3 class="card-title">
-                                    SmartTab
-                                </h3>
-
-                                <p class="card-text">
-                                    SmartTab is an innovative cloud-based software system for venue management.
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-sm-6 col-xs-12">
-                <div class="card card-block">
-                    <a><img alt="" src="welcome/img/new-porf-2.jpg">
-                        <div class="portfolio-over">
-                            <div>
-                                <h3 class="card-title">
-                                    GrowthHackers
-                                </h3>
-
-                                <p class="card-text">
-                                    GrowthHackers is a platform that unites entrepreneurs and marketing experts.
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-sm-6 col-xs-12">
-                <div class="card card-block">
-                    <a><img alt="" src="welcome/img/new-porf-3.jpg">
-                        <div class="portfolio-over">
-                            <div>
-                                <h3 class="card-title">
-                                    Secure Phone
-                                </h3>
-
-                                <p class="card-text">
-                                    Secure Phone is a Mobile Management solution, a device with a proprietary OS based
-                                    on Android.
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-sm-6 col-xs-12">
-                <div class="card card-block">
-                    <a><img alt="" src="welcome/img/new-porf-4.jpg">
-                        <div class="portfolio-over">
-                            <div>
-                                <h3 class="card-title">
-                                    CUJO
-                                </h3>
-                                <p class="card-text">
-                                    CUJO is a smart device that protects home networks from hacks, malware and viruses.
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-3 col-sm-6 col-xs-12">
-                <div class="card card-block">
-                    <a><img alt="" src="welcome/img/new-porf-5.jpg">
-                        <div class="portfolio-over">
-                            <div>
-                                <h3 class="card-title">
-                                    Active Suspension Control
-                                </h3>
-
-                                <p class="card-text">
-                                    Active Suspension Control helps car owner control suspension level.
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-sm-6 col-xs-12">
-                <div class="card card-block">
-                    <a><img alt="" src="welcome/img/new-porf-6.jpg">
-                        <div class="portfolio-over">
-                            <div>
-                                <h3 class="card-title">
-                                    PepTalk
-                                </h3>
-
-                                <p class="card-text">
-                                    PepTalk supports the well-being of employees with mobile gamification and blog
-                                    content.
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-sm-6 col-xs-12">
-                <div class="card card-block">
-                    <a><img alt="" src="welcome/img/new-porf-7.jpg">
-                        <div class="portfolio-over">
-                            <div>
-                                <h3 class="card-title">
-                                    RedRoute
-                                </h3>
-
-                                <p class="card-text">
-                                    RedRoute is a software system for Taxi services, comprising an Android app for
-                                    drivers.
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-sm-6 col-xs-12">
-                <div class="card card-block">
-                    <a><img alt="" src="welcome/img/new-porf-8.jpg">
-                        <div class="portfolio-over">
-                            <div>
-                                <h3 class="card-title">
-                                    Mood Cow
-                                </h3>
-
-                                <p class="card-text">
-                                    Mood Cow is a mental care tool for primary care physicians and their patients.
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- /Portfolio -->
 
 
 <!-- Team -->

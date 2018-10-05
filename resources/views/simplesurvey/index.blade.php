@@ -145,6 +145,25 @@
         </div>
         {{--</Downloads>--}}
 
+        {{--<OpenCalais>--}}
+        <div class="row">
+
+            <div class="panel panel-primary">
+
+                <div class="panel-heading">
+                    <div class="panel-title">OpenCalais Sementic Analysis</div>
+                </div>
+
+                <div class="panel-body">
+                    <div>
+                        {!! $OpenCalaisResults !!}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        {{--</OpenCalais>--}}
+
         {{--<Responses>--}}
         <div class="row">
             <h3 class="text-primary">Responses</h3>
